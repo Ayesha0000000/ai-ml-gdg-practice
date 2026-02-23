@@ -1,10 +1,13 @@
-def add(a: int, b: int) -> int:
-    return a + b
+from fastapi import FastAPI
+
+app = FastAPI()
 
 
-def main():
-    print("sum:", add(2, 3))
+@app.get("/")
+def home():
+    return {"message": "FastAPI server is running successfully"}
 
 
-if __name__ == "__main__":
-    main()
+@app.get("/add")
+def add(a: int, b: int):
+    return {"sum": a + b}
