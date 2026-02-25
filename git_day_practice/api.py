@@ -1,4 +1,5 @@
 from fastapi import FastAPI, Header, HTTPException
+
 from git_day_practice.settings import get_settings
 
 settings = get_settings()
@@ -27,4 +28,4 @@ def config():
 def secure(x_api_key: str = Header(None)):
     if x_api_key != settings.api_key:
         raise HTTPException(status_code=401, detail="Invalid key")
-    return {"secret_data": "approved"}   # ✅ FIXED
+    return {"secret_data": "approved"}  # ✅ FIXED
