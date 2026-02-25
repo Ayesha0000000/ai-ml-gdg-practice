@@ -27,4 +27,4 @@ def config():
 def secure(x_api_key: str = Header(None)):
     if x_api_key != settings.api_key:
         raise HTTPException(status_code=401, detail="Invalid key")
-    return {"secret": "approved"}
+    return {"secret_data": "approved"}   # ✅ FIXED
